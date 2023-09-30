@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-router@3.5.2/dist/vue-router.js"></script>
+    <link rel="stylesheet" href="./Style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    </div>
+   
+    <div id="app">
+    
+        <div class="header">
+            <div class="logo">
+                <p>MY Portfolio</p>
+            </div>
+            <div class="links">
+                <router-link class="nav" to="/"><button class="navBtn">Home</button></router-link>
+                <router-link class="nav" to="/portfolio"><button class="navBtn">Projects</button></router-link>
+                <router-link class="nav" to="/about"><button class="navBtn">About</button></router-link>
+                <router-link class="nav" to="/contact"><button class="navBtn">Contact Me</button></router-link>
+                
+            </div>
+        </div>
+        <router-view></router-view>
+        
+        <footer>
+            <p>&copy; 2023 My Portfolio. All rights reserved.</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Define Home component
+        const Home = {
+            // Add HTML here for home 
+      template: `
+      <div class="container">
+        <img src="https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-Vector.png" alt="">
+        <div class="section">
+            <h1 class="name">Hey..... I'm Ravindi.....👋 </h1>
+        
+        </div>
+      `,
+    };
+    
+    
+        // Define About component
+        const About = {
+            // Add HTML here
+            //description of the about section
+            template: `
+        <div class="about-section">
+            <p>Greetings! I'm a passionate software developer named Ravindi, and I excel at creating original solutions and outstanding digital experiences. With a strong background in computer science and a deep love of coding, I thrive on transforming complex problems into beautiful and understandable software applications.</p>
+            <p><b>I'm an expert in:</b></p>
+            <ul>
+                <li><strong>Full-Stack Development:</strong> I have expertise in both front-end and back-end development, designing intuitive user interfaces that are interactive and well-integrated with powerful server-side features.</li>
+                <li><strong>Web technologies:</strong> I have extensive knowledge of HTML, CSS, JavaScript, and cutting-edge frameworks like React and Vue.js, which allows me to build dynamic and responsive websites.</li>
+                <li><strong>Mobile App Development:</strong> Creating cross-platform mobile applications for both iOS and Android platforms is a skill I have, and it allows me to guarantee a consistent user experience on all platforms and devices.</li>
+                <li><strong>Database management:</strong> I create and improve databases to ensure effective data management, storage, and retrieval for applications of any size.</li>
+                <li><strong>Collaboration & Version Control:</strong> As a skilled user of Git and GitHub, I work well with teams to ensure efficient workflow and version control management.</li>
+            </ul>
+        </div>
+    `
+        };
+        const Contact = {
+            // Add HTML here
+            template: `
+            <div class="contact-container">
+                <div class = "ls">
+                    <h1>Contact Information</h1>
+        <table>
+        <tr>
+            <th>Address</th>
+            <td>123 Main Street, melborne, Australlia, 1234</td>
+        </tr>
+        <tr>
+            <th>Telephone Numbers</th>
+            <td>
+                <ul>
+                    <li>Home: (+61) 456-789220</li>
+                    <li>Work: (+61) 332-898901</li>
+                    <li>Mobile: (+61) 678-903212</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>ravindi@gmail.com</td>
+        </tr>
+        <tr>
+            <th>Personal Website</th>
+            <td><a href="http://www.ravindi.com" target="_blank">www.ravindi.com</a></td>
+        </tr>
+        </table>
+        </div>
+        <div class = "rs">
+                    <h1>Send a Message</h1>
+                    <div class="newsletter-form">
+        <h2>Subscribe to Our Newsletter</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+            
+            <button type="submit">Subscribe</button>
+        </form>
+    </div>
+    </div>
+</div>
+            
+            `
+        };
+        const Portfolio = {
+        // Add HTML here
+    template: `
+    <div class="projects-container">
+            <div class="project-item" v-for="project in projects" :key="project.id">
+                <h2>{{ project.title }}</h2>
+                <p>{{ project.description }}</p>
+                <a :href="project.link" target="_blank">View Project</a>
+            </div>
+        </div>
+    `,
+    data() {
+        return {
+            // Add projects here
+            projects: [
+                    {
+                        id: 1,
+                        title: 'Filemanger',
+                        description: 'A file and document management system.',
+                        link: 'https://ravindi.com/1/'
+                    },
+                    {
+                        id: 2,
+                        title: 'CodeEditz',
+                        description: 'A web-based code editor and IDE.',
+                        link: 'https://ravindi.com/1/'
+                    },
+                    {
+                        id: 3,
+                        title: 'Datadog',
+                        description: 'A data security  tool.',
+                        link: 'https://ravindi.com/1/'
+                    },
+                    {
+        id: 1,
+        title: 'EcoHub',
+        description: 'An eco-friendly marketplace for sustainable products.',
+        link: 'https://ecohub.com/'
+    },
+    {
+        id: 2,
+        title: 'HealthTrack',
+        description: 'A health and fitness app to track workouts and meals.',
+        link: 'https://healthtrackapp.com/'
+    },
+    {
+        id: 3,
+        title: 'TravelBuddy',
+        description: 'A travel planning platform to discover and plan trips.',
+        link: 'https://travelbuddyapp.com/'
+    },
+    
+                    
+                    
+                    
+                    
+                   
+                ]
+        };
+    }
+};
+    
+        // Define routes
+        // Each route should map to a component.
+        const router = new VueRouter({
+            // Add routes here there are four routs in here
+            routes: [
+                { path: '/', component: Home },
+                { path: '/about', component: About },
+                { path: '/contact', component: Contact },
+                { path: '/portfolio', component: Portfolio }
+            ]
+        });
+    
+        // Create Vue instance
+        // Add the router to the Vue instance
+        const app = new Vue({
+            router,
+            el: '#app',
+            data: {
+                    
+                }
+        });
+    </script>
+    </body>
+</html>
